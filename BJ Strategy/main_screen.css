@@ -1,0 +1,12 @@
+* {
+margin: 0;
+padding: 0;
+
+}
+
+.window{
+  width: 375px;
+  height: 500px;
+  background-color: #ADD8E6;
+
+}
