@@ -8,5 +8,19 @@ padding: 0;
   width: 375px;
   height: 500px;
   background-color: #ADD8E6;
+}
 
+.title1{
+  font-size: 22px;
+  font-family: 'Courier New', sans-serif;
+}
+
+.header1{
+  text-align: center;
+}
+
+.bottom1{
+  background-color: Grey;
+  width: 375px;
+  height: 500px;
 }
