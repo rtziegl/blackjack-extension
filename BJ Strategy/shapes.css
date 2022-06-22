@@ -1,0 +1,70 @@
+/*.heart {
+ width: 6.25em;
+ height: 55em;
+ position: relative;
+ float: left;
+}
+.heart:before, .heart:after {
+ content: "";
+ width: 3em;
+ height: 5em;
+ position: absolute;
+ left: 3em;
+ top: 0;
+ background: red;
+ border-radius: 3em 3em 0 0;
+ transform: rotate(-45deg);
+ transform-origin: 0 100%;
+}
+.heart:after {
+ left: 0;
+ transform: rotate(45deg);
+ transform-origin: 100% 100%;
+}
+
+.diamond {
+ width: 0;
+ height: 0;
+ position: relative;
+ top: -3em;
+ border: 3em solid transparent;
+ border-bottom-color: rgb(129, 230, 255);
+ float: left;
+}
+.diamond:after {
+ content: '';
+ width: 0;
+ height: 0;
+ position: absolute;
+ left: -3em;
+ top: 3em;
+ border: 3em solid transparent;
+ border-top-color: rgb(129, 230, 255);
+}
+
+.spade {
+ width: 10em;
+ height: 10em;
+ position: relative;
+ float: left;
+ shape-outside: url('https://www.clipartmax.com/png/middle/197-1978425_symbol-of-spades-vector-spade-icon.png');
+}
+
+.spade:before, .spade:after {
+ content: "";
+ width: 3em;
+ height: 5em;
+ position: absolute;
+ left: 3em;
+ top: 0;
+ background: black;
+ border-radius: 3em 3em 0 0;
+ transform: rotate(-225deg);
+ transform-origin: 0 100%;
+}
+.spade:after {
+ left: 0;
+ transform: rotate(225deg);
+ transform-origin: 100% 100%;
+}
+*/

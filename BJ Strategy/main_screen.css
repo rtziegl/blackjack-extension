@@ -10,17 +10,19 @@ padding: 0;
   background-color: #ADD8E6;
 }
 
-.title1{
+.title{
   font-size: 22px;
   font-family: 'Courier New', sans-serif;
 }
 
-.header1{
+.header{
   text-align: center;
 }
 
-.bottom1{
+.bottom{
   background-color: Grey;
   width: 375px;
   height: 500px;
+  display: flex;
+  justify-content: center;
 }
