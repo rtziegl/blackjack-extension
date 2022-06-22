@@ -7,7 +7,8 @@ padding: 0;
 .window{
   width: 375px;
   height: 500px;
-  background-color: #ADD8E6;
+  background-color: #415A77;
+  /*background-color: #242f3f;*/
 }
 
 .title{
