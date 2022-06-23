@@ -1,13 +1,18 @@
+const element = document.getElementById("get-strat");	// Get element
+element.style.visibility = "hidden";
 const LOAD_TIMEOUT = setTimeout(showPage, 1700);
 var seconds = 0;
 
 
+
+
 function showPage() {
   $(document).ready(function(){
-    $(".loading_screen").fadeOut();
+    $(".loading-screen").fadeOut();
   });
   //document.getElementById("loading_page").style.display= "none";
-  document.getElementById("app_window").style.display = "block";
+  document.getElementById("app-window").style.display = "block";
+  element.style.visibility = "visible";
 }
 
 /*

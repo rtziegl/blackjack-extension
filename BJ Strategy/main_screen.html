@@ -9,9 +9,8 @@
     <title></title>
   </head>
     <body>
-      <div class = "loading_screen" id="loading_page">
+      <div class = "loading-screen" id="loading-page">
         <div class="loader-wrapper">
-
             <div class="hearts">♥</div>
             <div class="spades">♠</div>
             <div class="clubs">♣</div>
@@ -19,11 +18,24 @@
         </div>
       </div>
 
-      <div class="window" id="app_window">
+      <div class="window" id="app-window">
         <div class="header">
           <p class="title">black jack strat</p>
+        </div>
+        <div class="bottom">
+          <div class="row1">
+            <label for="players-cards">your cards</label>
+            <input type="text" id="players-cards" name="players-cards" placeholder="your cards">
+          </div>
+          <div class="row2">
+          <label for="dealers-card">dealer card</label>
+          <input type="text" id="dealers-card" name="dealers-card" placeholder="dealers card">
+          </div>
+          <button class="button-8" role="button" id="get-strat">Button 8</button>
+          <p id="strategy"> strategy </p>
         </div>
       </div>
     </body>
   <script type="text/javascript" src="load.js"></script>
+  <script type="text/javascript" src="strategy.js"></script>
 </html>

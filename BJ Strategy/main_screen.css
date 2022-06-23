@@ -1,3 +1,12 @@
+/*@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');*/
+@import "custom_button.css";
+@font-face {
+   font-family: cardsFont;
+   src: url(Cards-LVMG.ttf);
+   font-family: themeFont;
+   src: url(3DIsometricBold-8MYYZ.ttf);
+}
+
 * {
 margin: 0;
 padding: 0;
@@ -12,8 +21,9 @@ padding: 0;
 }
 
 .title{
-  font-size: 22px;
-  font-family: 'Courier New', sans-serif;
+  font-size: 40px;
+  font-family: themeFont;
+  color: black;
 }
 
 .header{
@@ -21,9 +31,31 @@ padding: 0;
 }
 
 .bottom{
-  background-color: Grey;
+  /*background-color: Grey;
   width: 375px;
-  height: 500px;
+  height: 500px;*/
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.row2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input[type=text]:focus {
+  outline: none;
+  border: 3px solid #555;
 }

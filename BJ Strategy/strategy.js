@@ -1,0 +1,72 @@
+const HIGH_CARDS = ['t', 'j', 'k', 'q'];
+const HIGH_CARD_VALUE = 10;
+const LOW_CARDS = ['2', '3', '4', '5', '6', '7', '8', '9'];
+const ACE = ['a'];
+const ACE_VALUE = 11;
+
+var players_hand = "", dealers_card = "";
+document.getElementById("get-strat").onclick = function() {getData(players_hand, dealers_card)};
+
+// Player class to hold hand and hand_value.
+class Player{
+
+  constructor(hand,hand_value){
+    this.hand = hand;
+    this.hand_value = hand_value;
+  }
+
+  getPlayerHandValue(){
+    return this.hand_value
+  }
+  calculatePlayerHandValue(hand){
+    let hand_value = 0;
+    for (let i = 0; i < hand.length; i++) {
+      if(HIGH_CARDS.includes(hand[i]))
+        hand_value += HIGH_CARD_VALUE;
+      else if(LOW_CARDS.includes(hand[i]))
+        hand_value += parseInt(hand[i]);
+      else if(ACE.includes(hand[i]))
+        hand_value += ACE_VALUE;
+    }
+    this.hand_value = hand_value
+  }
+}
+
+// Dealer class to hold card and card_value.
+class Dealer{
+  constructor(card,card_value){
+    this.card = card;
+    this.card_value = card;
+  }
+}
+
+// Does all main calls/work to make computations.
+function getData(players_hand, dealers_card){
+
+
+  // Getting player and dealer hand values.
+  players_hand = document.getElementById("players-cards").value;
+  dealers_card = document.getElementById("dealers-card").value;
+
+  // Converting to lowercase.
+  players_hand = players_hand.toLowerCase();
+  dealers_card = dealers_card.toLowerCase();
+
+  // Converting to array.
+  players_hand = players_hand.split('');
+
+  // Making a player to hold the hand and the hand_value.
+  let player = new Player(players_hand, 0);
+  player.calculatePlayerHandValue(player.hand);
+  player.hand_value = player.getPlayerHandValue();
+
+
+  //let player_hand_value = getPlayerHandValue(player);
+  //let dealer_card_value = getDealerHandValue(dealer);
+
+  document.getElementById("strategy").innerHTML = "player" + player.hand_value;
+}
+
+function getDealerHandValue(dealer){
+
+}
