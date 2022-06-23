@@ -3,6 +3,15 @@ const HIGH_CARD_VALUE = 10;
 const LOW_CARDS = ['2', '3', '4', '5', '6', '7', '8', '9'];
 const ACE = 'a';
 const ACE_VALUE = 11;
+const HIT = "HIT.";
+const STAND = "STAND.";
+const DOUBLE_OR_HIT = "DOUBLE. If DOUBLE is not available, then HIT.";
+const SPLIT = "SPLIT.";
+const DOUBLE_OR_STAND = "DOUBLE. If DOUBLE is not available, then STAND.";
+const SURRENDER_OR_HIT = "SURRENDER. If SURRENDER is not available, then HIT.";
+const SURRENDER_OR_STAND = "SURRENDER. If SURRENDER is not available, then STAND.";
+const SURRENDER_OR_SPLIT = "SURRENDER. If SURRENDER is not available, then SPLIT.";
+const SPLIT_AND_DOUBLE_OR_HIT = "SPLIT and then DOUBLE.  If DOUBLE is not available, then HIT.";
 
 var players_hand = "", dealers_card = "";
 document.getElementById("get-strat").onclick = function() {getData(players_hand, dealers_card)};
@@ -109,7 +118,34 @@ function getStrategy(player, dealer){
 
 function pairRules(c1, dcv){
 
+  // Pairs of 2's and 3's.
+  if (c1 == 2 || c1 == 3){
+    if (dcv == 2 || dcv == 3)
+      document.getElementById("strategy").innerHTML = SPLIT_AND_DOUBLE_OR_HIT;
+    else if (dcv >= 4 && dcv <= 7)
+      document.getElementById("strategy").innerHTML = SPLIT;
+    else if (dcv >= 8 && dcv <= ACE_VALUE)
+      document.getElementById("strategy").innerHTML = HIT;
+  }
+
+  // Pairs of 4's.
+  else if (c1 == 4){
+    if ((dcv >= 2 && dcv <= 4) || (dcv >= 7 && dcv <= ACE_VALUE))
+      document.getElementById("strategy").innerHTML = HIT;
+    else if (dcv == 5 || dcv == 6)
+      document.getElementById("strategy").innerHTML = SPLIT_AND_DOUBLE_OR_HIT;
+  }
+
+  // Pairs of 5's.
+  else if (c1 == 5){
+    if (dcv >= 2 && dcv <= 9)
+      document.getElementById("strategy").innerHTML = DOUBLE_OR_HIT;
+    else if (dcv == HIGH_CARD_VALUE || dcv == ACE_VALUE)
+      document.getElementById("strategy").innerHTML = HIT;
+  }
 }
+
+
 function hardTotals(phv, dcv){
 
 }
