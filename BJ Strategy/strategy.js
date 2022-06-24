@@ -255,8 +255,8 @@ function hardTotals(phv, dcv){
       document.getElementById("strategy").innerHTML = STAND;
     else if (dcv >= 7 && dcv <= 8)
       document.getElementById("strategy").innerHTML = HIT;
-      else if (dcv >= 9 && dcv <= HIGH_CARD_VALUE)
-        document.getElementById("strategy").innerHTML = SURRENDER_OR_HIT;
+    else if (dcv >= 9 && dcv <= HIGH_CARD_VALUE)
+      document.getElementById("strategy").innerHTML = SURRENDER_OR_HIT;
   }
   // Hand total of 17 - 21. *Change if want to say blackjack*
   else if (phv >= 17 && phv <= 21){
@@ -266,6 +266,57 @@ function hardTotals(phv, dcv){
   }
 
 }
+
+// When hand is not a pair and holds an ace and another card.
 function softTotals(phv,dcv){
+
+  // 13 (a2) and 14 (a3).
+  if (phv == 13 || phv == 14){
+    if ((dcv >= 2 && dcv <= 4) || (dcv >= 7 && dcv <= ACE_VALUE))
+      document.getElementById("strategy").innerHTML = HIT;
+    else if (dcv >= 5 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = DOUBLE_OR_HIT;
+  }
+
+  // 15 (a4) and 16 (a5).
+  else if (phv == 15 || phv == 16){
+    if ((dcv >= 2 && dcv <= 3) || (dcv >= 7 && dcv <= ACE_VALUE))
+      document.getElementById("strategy").innerHTML = HIT;
+    else if (dcv >= 4 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = DOUBLE_OR_HIT;
+  }
+
+  // 17 (a6).
+  else if (phv == 17){
+    if ((dcv == 2) || (dcv >= 7 && dcv <= ACE_VALUE))
+      document.getElementById("strategy").innerHTML = HIT;
+    else if (dcv >= 3 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = DOUBLE_OR_HIT;
+  }
+
+  // 18 (a7).
+  else if (phv == 18){
+    if ((dcv == 2) || (dcv >= 7 && dcv <= 8))
+      document.getElementById("strategy").innerHTML = STAND;
+    else if (dcv >= 3 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = DOUBLE_OR_STAND;
+    else if (dcv >= 9 && dcv <= ACE_VALUE)
+      document.getElementById("strategy").innerHTML = HIT;
+  }
+
+  // 19 (a8).
+  else if (phv == 19){
+    if ((dcv >= 2 && dcv <= 5) || (dcv >= 7 && dcv <= ACE_VALUE))
+      document.getElementById("strategy").innerHTML = STAND;
+    else if (dcv == 6)
+      document.getElementById("strategy").innerHTML = DOUBLE_OR_STAND;
+  }
+
+  // 20 (a9). *Change for 20+*
+  else if (phv == 20){
+    if (dcv >= 2 && dcv <= ACE_VALUE){
+      document.getElementById("strategy").innerHTML = STAND;
+    }
+  }
 
 }
