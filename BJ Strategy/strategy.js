@@ -128,7 +128,7 @@ function pairRules(c1, dcv){
       document.getElementById("strategy").innerHTML = HIT;
   }
 
-  // Pairs of 4's.
+  // Pair of 4's.
   else if (c1 == 4){
     if ((dcv >= 2 && dcv <= 4) || (dcv >= 7 && dcv <= ACE_VALUE))
       document.getElementById("strategy").innerHTML = HIT;
@@ -136,13 +136,58 @@ function pairRules(c1, dcv){
       document.getElementById("strategy").innerHTML = SPLIT_AND_DOUBLE_OR_HIT;
   }
 
-  // Pairs of 5's.
+  // Pair of 5's.
   else if (c1 == 5){
     if (dcv >= 2 && dcv <= 9)
       document.getElementById("strategy").innerHTML = DOUBLE_OR_HIT;
     else if (dcv == HIGH_CARD_VALUE || dcv == ACE_VALUE)
       document.getElementById("strategy").innerHTML = HIT;
   }
+
+  // Pair of 6's.
+  else if (c1 == 6){
+    if (dcv == 2)
+      document.getElementById("strategy").innerHTML = SPLIT_AND_DOUBLE_OR_HIT;
+    else if (dcv >= 3 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = SPLIT;
+    else if (dcv >=7 && dcv <= ACE_VALUE)
+      document.getElementById("strategy").innerHTML = HIT;
+  }
+
+  // Pair of 7's.
+  else if (c1 == 7){
+    if (dcv >= 2 && dcv <=7)
+      document.getElementById("strategy").innerHTML = SPLIT;
+    else if (dcv >=8 && dcv <= ACE_VALUE)
+        document.getElementById("strategy").innerHTML = HIT;
+  }
+
+  // Pair of 8's.
+  else if (c1 == 8){
+    if (dcv >= 2 && dcv <= ACE_VALUE)
+      document.getElementById("strategy").innerHTML = SPLIT;
+  }
+
+  // Pair of 9's.
+  else if (c1 == 9){
+    if ((dcv >= 2 && dcv <= 6) || (dcv >= 8 && dcv <= 9))
+      document.getElementById("strategy").innerHTML = SPLIT;
+    else if ((dcv == 7) || (dcv >= HIGH_CARD_VALUE && dcv <= ACE_VALUE))
+      document.getElementById("strategy").innerHTML = STAND;
+  }
+
+  // Pairs of HIGH_CARDS.
+  else if (HIGH_CARDS.includes(c1)){
+    if (dcv >= 2 && dcv <= ACE_VALUE)
+      document.getElementById("strategy").innerHTML = STAND;
+  }
+
+  // Pairs of ACE's.
+  else if (ACE.includes(c1)){
+    if (dcv >= 2 && dcv <= ACE_VALUE)
+      document.getElementById("strategy").innerHTML = SPLIT;
+  }
+
 }
 
 
