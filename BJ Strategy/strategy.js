@@ -162,7 +162,7 @@ function pairRules(c1, dcv){
         document.getElementById("strategy").innerHTML = HIT;
   }
 
-  // Pair of 8's.
+  // Pair of 8's. *For dealer hit on soft 17, when dcv = ACE_VALUE, then SURRENDER_OR_SPLIT."
   else if (c1 == 8){
     if (dcv >= 2 && dcv <= ACE_VALUE)
       document.getElementById("strategy").innerHTML = SPLIT;
