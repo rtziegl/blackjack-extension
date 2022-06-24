@@ -115,7 +115,7 @@ function getStrategy(player, dealer){
     softTotals(phv,dcv);
 }
 
-
+// When hand is a pair do suggested action.
 function pairRules(c1, dcv){
 
   // Pairs of 2's and 3's.
@@ -190,8 +190,80 @@ function pairRules(c1, dcv){
 
 }
 
-
+// When hand doesn't involve an ace and isn't a pair do selected action.
 function hardTotals(phv, dcv){
+
+  // Hand total of 8 and below phv.
+  if (phv <= 8){
+    if (dcv >= 2 && dcv <= ACE_VALUE)
+      document.getElementById("strategy").innerHTML = HIT;
+  }
+
+  // Hand total of 9.
+  else if (phv == 9){
+    if ((dcv == 2) || (dcv >= 7 && dcv <= ACE_VALUE))
+      document.getElementById("strategy").innerHTML = HIT;
+    else if (dcv >= 3 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = DOUBLE_OR_HIT;
+  }
+
+  // Hand total of 10.
+  else if (phv == HIGH_CARD_VALUE){
+    if (dcv >= 2 && dcv <= 9)
+      document.getElementById("strategy").innerHTML = DOUBLE_OR_HIT;
+    else if (dcv >= HIGH_CARD_VALUE && dcv <= ACE_VALUE)
+      document.getElementById("strategy").innerHTML = HIT;
+  }
+
+  // Hand total of 11.
+  else if (phv == ACE_VALUE){
+    if (dcv >= 2 && dcv <= HIGH_CARD_VALUE)
+      document.getElementById("strategy").innerHTML = DOUBLE_OR_HIT;
+    else if (dcv == ACE_VALUE)
+      document.getElementById("strategy").innerHTML = HIT;
+  }
+
+  // Hand total of 12.
+  else if (phv == 12){
+    if ((dcv >= 2 && dcv <= 3) || (dcv >= 7 && dcv <= ACE_VALUE))
+      document.getElementById("strategy").innerHTML = HIT;
+    else if (dcv >= 4 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = STAND;
+  }
+
+  // Hand total of 13 and 14.
+  else if (phv == 13 || phv == 14){
+    if (dcv >= 2 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = STAND;
+    else if (dcv >= 7 && dcv <= ACE_VALUE)
+      document.getElementById("strategy").innerHTML = HIT;
+  }
+
+  // Hand total of 15.
+  else if (phv == 15){
+    if (dcv >= 2 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = STAND;
+    else if ((dcv == ACE_VALUE) || (dcv >= 7 && dcv <= 9))
+      document.getElementById("strategy").innerHTML = HIT;
+      else if (dcv == HIGH_CARD_VALUE)
+        document.getElementById("strategy").innerHTML = SURRENDER_OR_HIT;
+  }
+
+  // Hand total of 16.
+  else if (phv == 16){
+    if (dcv >= 2 && dcv <= 6)
+      document.getElementById("strategy").innerHTML = STAND;
+    else if (dcv >= 7 && dcv <= 8)
+      document.getElementById("strategy").innerHTML = HIT;
+      else if (dcv >= 9 && dcv <= HIGH_CARD_VALUE)
+        document.getElementById("strategy").innerHTML = SURRENDER_OR_HIT;
+  }
+  // Hand total of 17 - 21. *Change if want to say blackjack*
+  else if (phv >= 17 && phv <= 21){
+    if (dcv >= 2 && dcv <= ACE_VALUE){
+      document.getElementById("strategy").innerHTML = STAND;
+    }
+  }
 
 }
 function softTotals(phv,dcv){
